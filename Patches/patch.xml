@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+    <value>
+        <li>Designator_ExtractTree</li>
+        <li>Designator_Strip</li>
+    </value>
+  </Operation>
+
+
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+            <value>
+              <li>Designator_ExtractSkull</li>
+            </value>
+        </li>
+			</operations>
+		</match>
+	</Operation>
+
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ancient urban ruins</li>
+		</mods>
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/DesignationCategoryDef[defName="Orders"]/specialDesignatorClasses</xpath>
+                    <value>
+                        <li>Designator_Open</li>
+                    </value>
+                </li>
+			</operations>
+		</nomatch>
+	</Operation>
+
+</Patch>
